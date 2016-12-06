@@ -1,0 +1,73 @@
+{
+  "name": "dev-diaries",
+  "version": "1.0.0",
+  "description": "Journalling web app",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha unitTest.config.js",
+    "start": "npm-run-all bundle open:src",
+    "dev": "npm-run-all dev-parallel ",
+    "dev-parallel": "npm-run-all --parallel lint:watch sass-lint:watch bundle:watch open:src",
+    "open:src": "node src/server/server.js",
+    "bundle": "webpack",
+    "bundle:watch": "webpack --watch",
+    "lint": "node_modules/.bin/esw --color webpack.config.js src",
+    "lint:watch": "npm run lint -- --watch",
+    "sass-lint": "sass-lint --config .sass-lint.yml -v -q",
+    "sass-lint:watch": "nodemon -e scss -x \"npm run sass-lint\"",
+    "test-unit:generate": "istanbul cover --report lcov --report text -x '**/*.test.js' _mocha -- -R spec unitTest.config.js",
+    "test-unit:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taraojo/devDiaries.git"
+  },
+  "keywords": [
+    "journal",
+    "notes",
+    "diary"
+  ],
+  "author": "Tara Ojo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taraojo/devDiaries/issues"
+  },
+  "homepage": "https://github.com/taraojo/devDiaries#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^3.4.0",
+    "eslint-watch": "^2.1.14",
+    "ignore-styles": "^5.0.1",
+    "istanbul": "^0.4.5",
+    "jsdom": "^9.5.0",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "sass-lint": "^1.9.1",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "browser-sync": "^2.16.1",
+    "browser-sync-webpack-plugin": "^1.1.3",
+    "clean-webpack-plugin": "^0.1.10",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.25.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "handlebars-loader": "^1.4.0",
+    "html-loader": "^0.4.4",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.9.3",
+    "npm-run-all": "^3.1.0",
+    "path": "^0.12.7",
+    "require-all": "^2.0.0",
+    "sass-loader": "^4.0.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
+  }
+}

@@ -1,0 +1,5 @@
+applications:
+- name: devDiaries
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  memory: 256M
+  command: npm start

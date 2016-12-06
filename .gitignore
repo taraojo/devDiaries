@@ -1,2 +1,14 @@
-.sass-cache/
-*.css.map
+# Generated directories
+assets
+
+# Logs
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Optional REPL history
+.idea
+
+# Coverage directory for istanbul
+coverage

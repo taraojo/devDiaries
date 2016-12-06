@@ -1,0 +1,25 @@
+body {
+  font-family: $font--base-font;
+  background: $colour--highlight;
+  margin: 0;
+}
+
+a {
+  color: $colour--general-font;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.content {
+  z-index: 10;
+  top: 130px;
+  position: relative;
+}
+
+main {
+  background: $colour--white;
+  padding-top: 2rem;
+}
