@@ -5,10 +5,42 @@
 </head>
 
 <body>
-<div>
-    {{ data }}
-    <a href="/newEntry">new entry</a>
-</div>
+<p class="loader">
+    Loading...
+</p>
+
+<header class="header">
+    <h1>
+        {{{data}}}
+    </h1>
+</header>
+
+<main>
+    <div class="content">
+        <div class="container">
+
+            <div class="row card-template" hidden>
+                <div class="col col-md-8 col-md-offset-2">
+                    <div class="header__shadow"></div>
+
+                    <div class="card-area">
+                        <h2 class="entry-title">
+                            Entry card
+                        </h2>
+                        <div class="description">
+                            desc.
+                        </div>
+                        <div class="date">
+                            date
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/assets/js/app.js" async></script>
 </body>
 
 </html>

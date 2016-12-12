@@ -20,6 +20,15 @@ a {
 }
 
 main {
-  background: $colour--white;
+  //background: $colour--white;
   padding-top: 2rem;
+}
+
+.card-area {
+  background: $colour--white;
+  padding: 2rem;
+
+  .entry-title {
+    color: $colour--dark-grey;
+  }
 }

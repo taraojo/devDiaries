@@ -6,7 +6,8 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        newEntry: './src/client/newEntry/newEntry'
+        newEntry: './src/client/newEntry/newEntry',
+        app: './src/client/app'
     },
 
     output: {
