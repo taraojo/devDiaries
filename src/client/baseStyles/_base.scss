@@ -9,7 +9,7 @@ body {
 
 main {
   margin-top: 5rem;
-  padding-top: 15px;
+  z-index: -1;
 }
 
 a {
@@ -23,9 +23,29 @@ a {
 
 .card-area {
   background: $colour--white;
-  padding: 2rem;
+  padding: 1rem .5rem .5rem;
+  margin-bottom: 1px;
+  max-height: 88px;
+  overflow: hidden;
+
+  &:nth-child(1) {
+    padding-top: 10px;
+  }
 
   .entry-title {
     color: $colour--dark-grey;
+    margin: 0;
+  }
+}
+
+.list-container {
+  & > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .no-padding {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

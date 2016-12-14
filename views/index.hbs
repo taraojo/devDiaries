@@ -1,32 +1,30 @@
 <html>
 
 <head>
+    <!--Meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!--Styling-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link href="/assets/css/newEntry.css" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="header__content">
-        <h2>
-            {{{appTitle}}}
-        </h2>
-    </div>
-    <div class="header__shadow"></div>
-</header>
-
+{{> header }}
 
 <main>
     <div class="content">
         <p class="loader">
             Loading...
         </p>
-        <div class="container">
+        <div class="list-container">
 
             {{#each entries}}
                 <div class="row card-template">
-                    <div class="col col-md-8 col-md-offset-2">
+                    <div class="col col-md-8 col-md-offset-2 no-padding">
                         <div class="card-area">
                             <h2 class="entry-title">
                                 {{{title}}}

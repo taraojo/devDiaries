@@ -133,6 +133,10 @@
 
     "globals": {
         "__dirname": false,
-        "process": false
+        "process": false,
+        "document": false,
+        "describe": false,
+        "it": false,
+        "expect": false
     }
 }
