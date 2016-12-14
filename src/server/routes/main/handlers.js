@@ -10,7 +10,7 @@ module.exports = {
 
             database.collection('entries').find().toArray(function(err, results) {
                 res.render('index', {
-                    data: 'Homepage placeholder',
+                    appTitle: 'Dev Diaries',
                     entries: results
                 });
             });

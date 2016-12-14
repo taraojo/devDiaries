@@ -1,5 +1,5 @@
 .footer {
-  background-color: $colour--highlight;
+  background-color: $colour--accent;
   padding: 2rem;
   text-align: center;
 
@@ -8,7 +8,7 @@
     margin-bottom: 1rem;
 
     a {
-      border-left: solid thin $colour--general-font;
+      border-left: solid thin $colour--dark-grey;
       margin-left: .5rem;
       padding-left: .5rem;
       text-decoration: none;

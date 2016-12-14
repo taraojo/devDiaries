@@ -1,29 +1,32 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link href="/assets/css/newEntry.css" rel="stylesheet">
 </head>
 
 <body>
-<p class="loader">
-    Loading...
-</p>
 
 <header class="header">
-    <h1>
-        {{{data}}}
-    </h1>
+    <div class="header__content">
+        <h2>
+            {{{appTitle}}}
+        </h2>
+    </div>
+    <div class="header__shadow"></div>
 </header>
+
 
 <main>
     <div class="content">
+        <p class="loader">
+            Loading...
+        </p>
         <div class="container">
 
             {{#each entries}}
                 <div class="row card-template">
                     <div class="col col-md-8 col-md-offset-2">
-                        <div class="header__shadow"></div>
-
                         <div class="card-area">
                             <h2 class="entry-title">
                                 {{{title}}}
@@ -35,7 +38,6 @@
                                 {{{dateTime}}}
                             </div>
                         </div>
-
                     </div>
                 </div>
             {{/each}}
