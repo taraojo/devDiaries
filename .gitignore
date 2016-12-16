@@ -12,3 +12,6 @@ node_modules
 
 # Coverage directory for istanbul
 coverage
+
+# Database config
+src/server/database.config.js

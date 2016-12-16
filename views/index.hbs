@@ -19,24 +19,27 @@
     <div class="content">
         <div class="container">
 
-            <div class="row card-template" hidden>
-                <div class="col col-md-8 col-md-offset-2">
-                    <div class="header__shadow"></div>
+            {{#each entries}}
+                <div class="row card-template">
+                    <div class="col col-md-8 col-md-offset-2">
+                        <div class="header__shadow"></div>
 
-                    <div class="card-area">
-                        <h2 class="entry-title">
-                            Entry card
-                        </h2>
-                        <div class="description">
-                            desc.
+                        <div class="card-area">
+                            <h2 class="entry-title">
+                                {{{title}}}
+                            </h2>
+                            <div class="description">
+                                {{{content}}}
+                            </div>
+                            <div class="date">
+                                {{{dateTime}}}
+                            </div>
                         </div>
-                        <div class="date">
-                            date
-                        </div>
+
                     </div>
-
                 </div>
-            </div>
+            {{/each}}
+
         </div>
     </div>
 </main>
