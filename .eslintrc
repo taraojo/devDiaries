@@ -1,9 +1,25 @@
 {
     "extends": "eslint:recommended",
 
+    "plugins": [
+        "mocha"
+    ],
+
     "env": {
         "es6":      true,
-        "commonjs": true
+        "commonjs": true,
+        "mocha":    true,
+        "node":     true,
+        "browser":  true
+    },
+
+    "ecmaFeatures": {
+        "modules": true
+    },
+
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
     },
 
     "rules": {
@@ -82,7 +98,7 @@
         // Enforce Strict Mode
         "strict": [
             2,
-            "function"
+            "safe"
         ],
         // Require Guarding for-in
         "guard-for-in": [
@@ -128,11 +144,13 @@
         "func-style": [
             2,
             "declaration"
-        ]
+        ],
+
+        "mocha/no-exclusive-tests": "error",
+        "mocha/no-identical-title": "error"
     },
 
     "globals": {
-        "__dirname": false,
-        "process": false
+        "expect": false
     }
 }

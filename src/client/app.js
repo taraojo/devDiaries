@@ -7,7 +7,7 @@
         visibleCards: {},
         loader: document.querySelector('.loader'),
         cardTemplate: document.querySelector('.card-template'),
-        container: document.querySelector('main .container')
+        container: document.querySelector('main .list-container')
     };
 
 

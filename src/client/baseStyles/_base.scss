@@ -1,11 +1,19 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: $font--base-font;
-  background: $colour--highlight;
-  margin: 0;
+  background: $colour--light-grey;
+}
+
+main {
+  margin-top: 5rem;
+  z-index: -1;
 }
 
 a {
-  color: $colour--general-font;
+  color: $colour--dark-grey;
   text-decoration: underline;
 
   &:hover {
@@ -13,22 +21,47 @@ a {
   }
 }
 
-.content {
-  z-index: 10;
-  top: 130px;
-  position: relative;
-}
-
-main {
-  //background: $colour--white;
-  padding-top: 2rem;
-}
-
 .card-area {
   background: $colour--white;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1px;
+  max-height: 88px;
+  overflow: hidden;
+
+  &:nth-child(1) {
+    padding-top: 10px;
+  }
 
   .entry-title {
     color: $colour--dark-grey;
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+    margin: 0;
+  }
+
+  .date {
+    color: $colour--dark-grey;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+  .description {
+    color: $colour--medium-grey;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    height: 2rem;
+    overflow: hidden;
+  }
+}
+
+.list-container {
+  & > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .no-padding {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

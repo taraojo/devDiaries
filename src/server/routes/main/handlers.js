@@ -1,19 +1,36 @@
 const MongoClient = require('mongodb').MongoClient;
+const dateService = require('./../../services/dateService');
 const connectionUrl = require('./../../database.config').dbConnectionUrl;
 
-module.exports = {
-    index: function (req, res) {
-        MongoClient.connect(connectionUrl, function (err, database) {
-            if (err) {
-                throw err;
-            }
+function parseEntries(entries) {
+    let newEntries = [];
+    for(let i in entries) {
+        if (entries.hasOwnProperty(i)) {
+            let entry = entries[i];
+            entry.dateTime = dateService.convertDate(entry.dateTime);
+            newEntries.push(entry);
+        }
+    }
+    return newEntries;
+}
 
-            database.collection('entries').find().toArray(function(err, results) {
-                res.render('index', {
-                    data: 'Homepage placeholder',
-                    entries: results
-                });
+function renderPage(req, res) {
+    MongoClient.connect(connectionUrl, function (err, database) {
+        if (err) {
+            throw err;
+        }
+
+        database.collection('entries').find().toArray(function(err, results) {
+            let parsedResults = parseEntries(results);
+
+            res.render('index', {
+                appTitle: 'Dev Diaries',
+                entries: parsedResults
             });
         });
-    }
+    });
+}
+
+module.exports = {
+    index: renderPage
 };

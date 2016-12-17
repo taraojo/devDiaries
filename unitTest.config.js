@@ -12,10 +12,10 @@ chai.use(require('chai-as-promised'));
 global.expect = chai.expect;
 global.sinon = require('sinon');
 
-var ignoreStyles = require('ignore-styles');
+let ignoreStyles = require('ignore-styles');
 
-var controllers = require('require-all')({
+let controllers = require('require-all')({
     dirname     :  __dirname + '/src',
-    filter      :  /.test.js$/,
+    filter      :  /(.test).js$/,
     recursive   : true
 });
