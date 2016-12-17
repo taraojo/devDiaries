@@ -32,5 +32,6 @@ function renderPage(req, res) {
 }
 
 module.exports = {
-    index: renderPage
+    index: renderPage,
+    parseEntries
 };

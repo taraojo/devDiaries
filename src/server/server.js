@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mainRoute = require('./routes/main/routes');
-const newEntryRoute = require('./routes/newEntry/routes');
+const newEntryRoute = require('./routes/addEntry/routes');
 const exphbs = require('express-handlebars');
 
 const server = express();
@@ -14,7 +14,7 @@ server.engine('hbs', exphbs({
 server.set('view engine', 'hbs');
 
 server.use('/', mainRoute);
-server.use('/newEntry', newEntryRoute);
+server.use('/addEntry', newEntryRoute);
 
 server.listen(process.env.PORT || 3000, () => {
     console.log('Dev Diaries app listening on port 3000', path.resolve(), __dirname);//eslint-disable-line

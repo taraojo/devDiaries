@@ -1,4 +1,4 @@
-require('./newEntry.scss');
+require('./addEntry.scss');
 
 module.exports = {
     returnArgs: function (args) {

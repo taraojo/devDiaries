@@ -1,4 +1,4 @@
-const newEntry = require('./newEntry.js');
+const newEntry = require('./addEntry.js');
 
 describe('Testing coding test questions', function() {
 
