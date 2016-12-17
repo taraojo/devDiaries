@@ -23,7 +23,7 @@ a {
 
 .card-area {
   background: $colour--white;
-  padding: 1rem .5rem .5rem;
+  padding: 2rem 1.5rem;
   margin-bottom: 1px;
   max-height: 88px;
   overflow: hidden;
@@ -34,7 +34,23 @@ a {
 
   .entry-title {
     color: $colour--dark-grey;
+    font-size: 1.6rem;
+    line-height: 2.1rem;
     margin: 0;
+  }
+
+  .date {
+    color: $colour--dark-grey;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+  .description {
+    color: $colour--medium-grey;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    height: 2rem;
+    overflow: hidden;
   }
 }
 
