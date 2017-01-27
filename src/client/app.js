@@ -12,18 +12,26 @@
 
 
     document.getElementById('btnAddEntry').addEventListener('click', function() {
-        // Add the newly selected city
-        let select = document.getElementById('selectCityToAdd');
-        let selected = select.options[select.selectedIndex];
-        let key = selected.value;
-        let label = selected.textContent;
-        if (!app.selectedCities) {
-            app.selectedCities = [];
+        // Add the newly created entry
+        let title = document.getElementById('newTitle').value;
+        let content = document.getElementById('newContent').value;
+
+        document.getElementById('newTitle').value = '';
+        document.getElementById('newContent').value = '';
+
+        console.log(content);//eslint-disable-line
+        if (!app.recentEntries) {
+            app.recentEntries = [];
         }
-        app.getForecast(key, label);
-        app.selectedCities.push({key: key, label: label});
-        app.saveSelectedCities();
-        app.toggleAddDialog(false);
+        let newEntry = {
+            title,
+            content,
+            dateTime: new Date()
+        };
+
+        app.recentEntries.push(newEntry);
+        app.updateEntryCard(newEntry);
+        app.saveRecentEntries();
     });
 
 
