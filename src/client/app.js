@@ -1,3 +1,4 @@
+const dateService = require('./../server/services/dateService');
 
 (function() {
 
@@ -62,7 +63,7 @@
             //app.visibleCards[data._id] = card;
         }
         card.querySelector('.description').textContent = data.content;
-        card.querySelector('.date').textContent = new Date(data.dateTime);
+        card.querySelector('.date').textContent = dateService.convertDate(data.dateTime);
 
         if (app.isLoading) {
             app.loader.setAttribute('hidden', true);
@@ -126,6 +127,12 @@
     } else {
         // The user is using the app for the first time, or has not saved any entries.
         app.getAllEntries();
+    }
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./service-worker.js')
+            .then(function() { console.log('Service Worker Registered'); });
     }
 
 })();

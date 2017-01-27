@@ -88,6 +88,11 @@ server.use('/api', router);
 server.use('/assets', express.static('assets'));
 server.use('/addEntry', newEntryRoute);
 
+//Send service worker
+server.use('/', function (req, res) {
+    res.sendFile(path.resolve() + '/service-worker.js');
+});
+
 
 
 
