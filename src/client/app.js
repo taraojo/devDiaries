@@ -83,6 +83,25 @@ const dateService = require('./../server/services/dateService');
     app.getAllEntries = function() {
         let url = '/api/entries/';
 
+
+        if ('caches' in window) {
+            /*
+             * Check if the service worker has already cached this city's weather
+             * data. If the service worker has the data, then display the cached
+             * data while the app fetches the latest data.
+             */
+            caches.match(url).then(function(response) {
+                if (response) {
+                    response.json().then(function updateFromCache(json) {
+                        let results = json.query.results;
+                        results.created = json.query.created;
+                        app.updateEntryCard(results);
+                    });
+                }
+            });
+        }
+
+
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (request.readyState === XMLHttpRequest.DONE) {
@@ -96,6 +115,7 @@ const dateService = require('./../server/services/dateService');
                 }
             }
         };
+
         request.open('GET', url);
         request.send();
     };

@@ -42,7 +42,13 @@ server.use('/service-worker.js', function (req, res) {
     res.sendFile(path.resolve() + '/service-worker.js');
 });
 
+server.use('/manifest.json', function (req, res) {
+    res.sendFile(path.resolve() + '/manifest.json');
+});
 
+server.use('/favicon.ico', function (req, res) {
+    res.sendFile(path.resolve() + '/favicon.ico');
+});
 
 
 

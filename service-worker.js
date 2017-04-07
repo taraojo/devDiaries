@@ -1,8 +1,14 @@
+let dataCacheName = 'diaryEntryData-v1';
 let cacheName = 'devDiariesPWA-001';
 let filesToCache = [
     '/',
     '/assets/js/app.js',
-    '/assets/css/newEntry.css'
+    '/assets/css/newEntry.css',
+    '/assets/images/icons/devDiaries-32.png',
+    '/assets/images/icons/devDiaries-128.png',
+    '/assets/images/icons/devDiaries-144.png',
+    '/assets/images/icons/devDiaries-152.png',
+    '/assets/images/icons/devDiaries-192.png'
 ];
 
 self.addEventListener('install', function(e) {
@@ -20,7 +26,7 @@ self.addEventListener('activate', function(e) {
     e.waitUntil(
         caches.keys().then(function(keyList) {
             return Promise.all(keyList.map(function(key) {
-                if (key !== cacheName) {
+                if (key !== cacheName && key !== dataCacheName) {
                     console.log('[ServiceWorker] Removing old cache', key);
                     return caches.delete(key);
                 }
@@ -32,9 +38,33 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(e) {
     console.log('[ServiceWorker] Fetch', e.request.url);
-    e.respondWith(
-        caches.match(e.request).then(function(response) {
-            return response || fetch(e.request);
-        })
-    );
+    let dataUrl = '/api/entries';
+    if (e.request.url.indexOf(dataUrl) > -1) {
+        /*
+         * When the request URL contains dataUrl, the app is asking for fresh
+         * data. In this case, the service worker always goes to the
+         * network and then caches the response. This is called the "Cache then
+         * network" strategy:
+         * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
+         */
+        e.respondWith(
+            caches.open(dataCacheName).then(function(cache) {
+                return fetch(e.request).then(function(response){
+                    cache.put(e.request.url, response.clone());
+                    return response;
+                });
+            })
+        );
+    } else {
+        /*
+         * The app is asking for app shell files. In this scenario the app uses the
+         * "Cache, falling back to the network" offline strategy:
+         * https://jakearchibald.com/2014/offline-cookbook/#cache-falling-back-to-network
+         */
+        e.respondWith(
+            caches.match(e.request).then(function(response) {
+                return response || fetch(e.request);
+            })
+        );
+    }
 });

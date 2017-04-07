@@ -39,7 +39,7 @@ module.exports = {
             root: '',
             verbose: true,
             dry: false,
-            exclude: []
+            exclude: ['images']
         }),
         new BrowserSyncPlugin({
             host: 'localhost',

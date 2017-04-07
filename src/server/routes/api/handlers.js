@@ -6,7 +6,7 @@ function getDefaultApiMessage(req, res) {
 }
 
 function useMiddleware(req, res, next) {
-    console.log('Hit the middleware at ' + Date.now() + ' to ' + req.url);
+    console.log('Hit the middleware at ' + Date() + ' to ' + req.url);
     next();
 }
 
