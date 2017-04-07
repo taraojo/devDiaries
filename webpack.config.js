@@ -1,12 +1,12 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var path = require('path');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
+let BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+let path = require('path');
 
 
 module.exports = {
     entry: {
-        newEntry: './src/client/newEntry/newEntry',
+        newEntry: './src/client/addEntry/addEntry',
         app: './src/client/app'
     },
 
@@ -39,7 +39,7 @@ module.exports = {
             root: '',
             verbose: true,
             dry: false,
-            exclude: []
+            exclude: ['images']
         }),
         new BrowserSyncPlugin({
             host: 'localhost',

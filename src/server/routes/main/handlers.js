@@ -20,7 +20,7 @@ function renderPage(req, res) {
             throw err;
         }
 
-        database.collection('entries').find().toArray(function(err, results) {
+        database.collection('diaryentries').find().toArray(function(err, results) {
             let parsedResults = parseEntries(results);
 
             res.render('index', {
@@ -32,5 +32,6 @@ function renderPage(req, res) {
 }
 
 module.exports = {
-    index: renderPage
+    index: renderPage,
+    parseEntries
 };
