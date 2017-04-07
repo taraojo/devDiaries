@@ -1,6 +1,6 @@
 # Generated directories
-assets
-
+assets/css
+assets/js
 # Logs
 npm-debug.log*
 
